@@ -10,10 +10,11 @@ export async function POST(request: NextRequest) {
   try {
     const reqBody = await request.json();
     const { email, password } = reqBody;
-    console.log(reqBody);
+    console.log({ reqBody, name: 'hello' });
 
     //check if user exists
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: reqBody.email });
+    console.log(user);
     if (!user) {
       return NextResponse.json(
         { error: 'User does not exist' },
@@ -40,14 +41,13 @@ export async function POST(request: NextRequest) {
     });
 
     const response = NextResponse.json({
-        message:"Login successful",
-        success:true
-    })
-    response.cookies.set("token",token,{
-        httpOnly:true,
-    })
+      message: 'Login successful',
+      success: true,
+    });
+    response.cookies.set('token', token, {
+      httpOnly: true,
+    });
     return response;
-
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
