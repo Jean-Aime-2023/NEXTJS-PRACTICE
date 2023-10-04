@@ -19,8 +19,8 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
   email: {
-    type:String,
-    required: [true, "Email required"]
+    type: String,
+    required: [true, 'Email required'],
   },
   forgotPasswordToken: String,
   forgotPasswordTokenExpiry: Date,
