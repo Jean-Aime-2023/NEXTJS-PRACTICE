@@ -11,4 +11,4 @@ export default function ProfilePage({ params }: any) {
       </p>
     </div>
   );
-}
+} 
