@@ -50,6 +50,7 @@ export default function LoginPage() {
         value={user.email}
         onChange={(e) => setUser({ ...user, email: e.target.value })}
         placeholder="email"
+
       />
       <label htmlFor="password">password</label>
       <input
@@ -59,6 +60,7 @@ export default function LoginPage() {
         value={user.password}
         onChange={(e) => setUser({ ...user, password: e.target.value })}
         placeholder="password"
+        
       />
       <button
         onClick={onLogin}
